@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">Dashboard</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-gray-500 text-sm font-medium">Total Reports</h3>
+            <p class="text-3xl font-bold">{{ stats.total_reports }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-gray-500 text-sm font-medium">Pending</h3>
+            <p class="text-3xl font-bold text-yellow-500">{{ stats.pending }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-gray-500 text-sm font-medium">Scheduled</h3>
+            <p class="text-3xl font-bold text-blue-500">{{ stats.scheduled }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-gray-500 text-sm font-medium">Collected</h3>
+            <p class="text-3xl font-bold text-green-500">{{ stats.collected }}</p>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow mb-8">
+        <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
+        <div class="flex flex-wrap gap-4">
+            <a href="{% url 'report_create' %}" 
+               class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center">
+                <i class="fas fa-plus-circle mr-2"></i> New Report
+            </a>
+            <a href="{% url 'report_list' %}" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                <i class="fas fa-list mr-2"></i> View Reports
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
